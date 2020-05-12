@@ -1,0 +1,45 @@
+#navbar{
+    font-size: 50px;
+    margin-left: 200px;
+}
+
+#body{
+    margin:0;
+    padding:0;
+}
+
+#div{
+    margin:25px;
+    padding:25px;
+}
+#altura{
+    height: 200;
+    max-height:  300px;
+    max-height: 300px;
+}
+
+#centrar{
+    margin-left: 200px;
+}
+#blanco{
+    color: white;
+}
+#texto{
+    text-align: center;
+}
+* {
+margin: 0;
+}
+html, body {
+height: 100%;
+}
+
+.footer{
+    display: grid;
+}
+
+#demo{
+    margin-left: 270px;
+    margin-right: 260px;
+    margin-top: 70px;
+}
