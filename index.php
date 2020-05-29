@@ -51,7 +51,7 @@ function calculatiempo($fechainicio, $fechafin)
     </a>
   </div>
 </div>
-<div style="background-image:url(jpg/verde.jpg);">
+<div id="caracteristicas" style="background-image:url(jpg/verde.jpg);">
   <div style="margin-left:27vw; ">
     <img src="png/Costacar.png" style="width:46vw; " alt="">
   </div>
@@ -137,7 +137,7 @@ function calculatiempo($fechainicio, $fechafin)
     </div>
   </div>
   <p></p>
-  <div class="container">
+  <div id="precios" class="container">
     <div class="row">
       <div class="col-md" id="texto">
         <h6>Deja atras las incomodidades del transporte público y únete a nuestro grupo de clientes satisfechos</h6>
@@ -269,6 +269,7 @@ function calculatiempo($fechainicio, $fechafin)
       </div>
     </div>
   </div>
+  <div id="consejos"></div>
   <p><br><br></p>
   <div style="text-align:center;background-image:url(jpg/verde.jpg);min-height:5vh" id="blanco">
     <h4> Consejos para alquilar un carro en Barranquilla </h4>

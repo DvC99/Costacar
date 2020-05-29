@@ -20,13 +20,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#" id="blanco">Caracteristicas</a>
+        <a class="nav-link" href="#caracteristicas" id="blanco">Caracteristicas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="precios.php" id="blanco">Precios</a>
+        <a class="nav-link" href="#precios" id="blanco">Precios</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" id="blanco">Contactanos</a>
+        <a class="nav-link" href="#consejos" id="blanco">Consejos</a>
       </li>
     </ul>
     <?php
@@ -66,8 +66,22 @@
         <form action="user_reg.php" method="POST">
           <div class="form-group">
             <label for="usuario">Nombre de usuario</label>
-            <input type="text" class="form-control" name="usuario" placeholder="Usuario">
+            <input type="text" id="usuario" class="form-control" onkeyup="userrep($('#usuario').val())" name="usuario" placeholder="Usuario">
+            <script>
+                function userrep(usuario) {
+                  $.ajax({
+                    url: 'verificar.php',
+                    type: 'POST',
+                    data: {
+                      'usuario': usuario,
+                    }
+                  }).done(function(resp) {
+                    $("#rep_user").html(resp);
+                  });
+                }
+              </script>
           </div>
+          <h6 id="rep_user" style="color:red"></h6>
           <div class="form-group">
             <label for="pass">Contraseña</label>
             <input type="password" class="form-control" name="pass" placeholder="Contraseña">
@@ -82,8 +96,23 @@
           </div>
           <div class="form-group">
             <label for="correo">Correo electronico</label>
-            <input type="email" class="form-control" name="correo" placeholder="ejemplo@ejemplo.com">
+            <input type="email" class="form-control" onkeyup="emailrep($('#email').val())" name="correo" id="email" placeholder="ejemplo@ejemplo.com">
+            <script>
+                function emailrep(email) {
+                  $.ajax({
+                    url: 'verificar.php',
+                    type: 'POST',
+                    data: {
+                      'email': email,
+                    }
+                  }).done(function(resp) {
+                    $("#rep_email").html(resp);
+                  });
+                }
+              </script>
           </div>
+          <h6 id="rep_email" style="color:red"></h6>
+          <br>
           <input type="submit" class="btn btn-success btn-block" name="user_reg" value="Registrar">
         </form>
       </div>
@@ -104,13 +133,27 @@
         <form action="user_login.php" method="POST">
           <div class="form-group">
             <label for="usuario">Nombre de usuario</label>
-            <input type="text" class="form-control" name="usuario" placeholder="Usuario">
+            <input type="text" class="form-control" name="usuario" id="userlogin" placeholder="Usuario">
           </div>
           <div class="form-group">
             <label for="pass">Contraseña</label>
-            <input type="password" class="form-control" name="pass" placeholder="Contraseña">
+            <input type="password" id="passlogin" class="form-control" name="pass" placeholder="Contraseña">
           </div>
-          <input type="submit" class="btn btn-success btn-block" name="login" value="Ingresar">
+          <input type="submit" onclick="credenciales($('#userlogin').val(),$('#passlogin').val())" class="btn btn-success btn-block" name="login" value="Ingresar">
+          <script>
+                function credenciales(user,pass) {
+                  $.ajax({
+                    url: 'verificar.php',
+                    type: 'POST',
+                    data: {
+                      'user': user,
+                      'pass': pass,
+                    }
+                  }).done(function(resp) {
+                    alert(resp);
+                  });
+                }
+              </script>
         </form>
       </div>
     </div>
